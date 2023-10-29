@@ -9,6 +9,8 @@ namespace MCRI\RenameUpload;
 
 use ExternalModules\AbstractExternalModule;
 
+use REDCap;
+
 class RenameUpload extends AbstractExternalModule
 {
     const ACTION_TAG = '@RENAME-UPLOAD';
@@ -28,6 +30,7 @@ class RenameUpload extends AbstractExternalModule
         $this->event_id = $event_id;
         $this->instance = $repeat_instance;
 
+        
         global $Proj;
 
         $ff = false;
@@ -52,13 +55,13 @@ class RenameUpload extends AbstractExternalModule
         if (array_key_exists($record_name, $formData)) {
             $doc_id = $formData[$record_name];
             if ($doc_id) {
-                $this->changeFileName($project_id, $string, $meta_data, $doc_id);
+                $this->renameFileName($project_id, $string, $meta_data, $doc_id);
             }
         }
     }
 
-    //function to change the file name in DB using doc_id
-    public function changeFileName($project_id, $string, $meta_data, $doc_id)
+    //function to rename the file name in DB using doc_id
+    public function renameFileName($project_id, $string, $meta_data, $doc_id)
     {
         $record_name = $meta_data['field_name'];
         $parts = explode('=', $string);
@@ -99,8 +102,12 @@ class RenameUpload extends AbstractExternalModule
             $old_file_name_parts = explode('.', $old_file_name);
             $file_extension = end($old_file_name_parts);
             $new_file_name = $rename_file_name . "." . $file_extension;
-            $update_query = "UPDATE `redcap_edocs_metadata` SET`doc_name`='$new_file_name' WHERE project_id = $project_id and doc_id = $doc_id;";
-            db_query($update_query);
+            if ($old_file_name !== $new_file_name) {
+                $update_query = "UPDATE `redcap_edocs_metadata` SET`doc_name`='$new_file_name' WHERE project_id = $project_id and doc_id = $doc_id;";
+                db_query($update_query);
+                $log_data = "Project Id = $project_id, \n Record Id = $this->record, \n Old FileName = $old_file_name, \n New FileName = $new_file_name \n";
+                REDCap::logEvent("REDCap Rename Upload module. $this->record",  $log_data);
+            }
         }
         return true;
     }
@@ -140,7 +147,7 @@ class RenameUpload extends AbstractExternalModule
                 false // $wrapValueInSpan=true
             );
 
-            // @RENAME UPLOAD=?
+            // @ENAME-UPLOAD=?
             $pattern_One = '/\[project-id\]-\[record-name\]/';
             $pattern_two = '/\[record-name\]-\[survey-time-completed\]/';
             $matches = array();
