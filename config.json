@@ -1,0 +1,27 @@
+{
+	"name": "Rename Upload",
+	"description": "Tag file fields with the action tag @RENAME-UPLOAD='?' to specify how files uploaded to the field should be renamed.",
+	"namespace": "MCRI\\RenameUpload",
+	"authors": [
+		{
+			"name": "Luke Stevens",
+			"email": "luke.stevens@mcri.edu.au",
+			"institution": "Murdoch Children's Research Institute"
+		}
+	],
+    "framework-version": 14,
+    "action-tags": [
+        {
+            "tag": "@RENAME-UPLOAD",
+            "description": "Tag file fields with the action tag @RENAME-UPLOAD='?' to specify how files uploaded to the field should be renamed."
+        }
+    ],
+	"system-settings": [ ],
+	"project-settings": [
+        {
+            "key": "tag-desc",
+            "name": "Tag file fields with the action tag @RENAME-UPLOAD='?' to specify how files uploaded to the field should be renamed.",
+            "type": "descriptive"
+        }
+     ]
+}
