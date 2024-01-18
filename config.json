@@ -1,11 +1,16 @@
 {
-	"name": "Rename Upload",
-	"description": "Tag file fields with the action tag @RENAME-UPLOAD='?' to specify how files uploaded to the field should be renamed.",
+	"name": "Rename File Upload",
+	"description": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<p>Piping of fields and smart variables into the file name <em>is</em> supported.</p>",
 	"namespace": "MCRI\\RenameUpload",
 	"authors": [
 		{
 			"name": "Luke Stevens",
 			"email": "luke.stevens@mcri.edu.au",
+			"institution": "Murdoch Children's Research Institute"
+		},
+		{
+			"name": "Harneet Bhinder",
+			"email": "harneet.bhinder@mcri.edu.au",
 			"institution": "Murdoch Children's Research Institute"
 		}
 	],
@@ -13,14 +18,14 @@
     "action-tags": [
         {
             "tag": "@RENAME-UPLOAD",
-            "description": "Tag file fields with the action tag @RENAME-UPLOAD='?' to specify how files uploaded to the field should be renamed."
+            "description": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<br>Piping of fields and smart variables into the file name <em>is</em> supported."
         }
     ],
 	"system-settings": [ ],
 	"project-settings": [
         {
             "key": "tag-desc",
-            "name": "Tag file fields with the action tag @RENAME-UPLOAD='?' to specify how files uploaded to the field should be renamed.",
+            "name": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<p>Piping of fields and smart variables into the file name <em>is</em> supported.</p>",
             "type": "descriptive"
         }
      ]
