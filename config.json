@@ -1,6 +1,6 @@
 {
 	"name": "Rename File Upload",
-	"description": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<p>Piping of fields and smart variables into the file name <em>is</em> supported.</p>",
+	"description": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<br><br>Piping of fields and smart variables into the file name <em>is</em> supported. Examples:<ul><li>@RENAME-UPLOAD='MyCustomFilenamePattern_rec-[record-name]'</li><li>@RENAME-UPLOAD='MyCustomFilenamePattern_[project-id]-[record-name]-[filename_part]'</li><li>@RENAME-UPLOAD='MyCustomFilenamePattern_[record-name]-[survey-time-completed]'</li></ul>Note: Do not include any file extension within the pattern. Renamed files will keep the extension with which they were uploaded.",
 	"namespace": "MCRI\\RenameUpload",
 	"authors": [
 		{
@@ -18,7 +18,7 @@
     "action-tags": [
         {
             "tag": "@RENAME-UPLOAD",
-            "description": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<br>Piping of fields and smart variables into the file name <em>is</em> supported."
+            "description": "Tag file fields with the action tag <code>@RENAME-UPLOAD='name_pattern'</code> to specify how files uploaded to the field should be renamed.<br><br>Piping of fields and smart variables into the file name <em>is</em> supported. Examples:<ul><li>@RENAME-UPLOAD='MyCustomFilenamePattern_rec-[record-name]'</li><li>@RENAME-UPLOAD='MyCustomFilenamePattern_[project-id]-[record-name]-[filename_part]'</li><li>@RENAME-UPLOAD='MyCustomFilenamePattern_[record-name]-[survey-time-completed]'</li></ul>Note: Do not include any file extension within the pattern. Renamed files will keep the extension with which they were uploaded."
         }
     ],
 	"system-settings": [ ],

@@ -3,7 +3,7 @@
 
 Luke Stevens, Murdoch Children's Research Institute https://www.mcri.edu.au
 
-[https://github.com/lsgs/redcap-choice-columns](https://github.com/lsgs/redcap-choice-columns)
+[https://github.com/lsgs/redcap-rename-file-upload](https://github.com/lsgs/redcap-rename-file-upload)
 ********************************************************************************
 ## Summary
 
