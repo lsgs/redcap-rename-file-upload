@@ -18,7 +18,7 @@ class RenameUpload extends AbstractExternalModule
     protected $project;
     protected $taggedFields = [];
 
-    public function redcap_save_record($project_id, $record, $instrument, $event_id, $group_id, $repeat_instance)
+    public function redcap_save_record($project_id, $record, $instrument, $event_id, $group_id, $survey_hash, $response_id, $repeat_instance)
     {
         // is one of the saved fields ($_POST) a file upload with the EM tag and a docid value?
         $instrumentFields = REDCap::getDataDictionary('array', false, true, $instrument);
