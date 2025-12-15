@@ -15,6 +15,7 @@ use REDCap;
 class RenameUpload extends AbstractExternalModule
 {
     const ACTION_TAG = '@RENAME-UPLOAD';
+    static $ProblematicCharacters = array('~','!','*','<','>',':',';',',','?','"',"'",'*','|','/','\\');
     protected $project;
     protected $taggedFields = [];
 
@@ -57,7 +58,7 @@ class RenameUpload extends AbstractExternalModule
                 false // $wrapValueInSpan=true
             );
 
-            $new_file_name = preg_replace('/[^A-Za-z0-9\-\_]/', '', $new_file_name); // ensure no invalid chars for file names
+            $new_file_name = trim(str_replace(static::$ProblematicCharacters, '', $new_file_name)); // strip any invalid chars from file name
 
             $query = "SELECT doc_name FROM `redcap_edocs_metadata` WHERE project_id = ? and doc_id = ? ORDER BY doc_id DESC LIMIT 1;";
             $getdoc_details = $this->query($query, [$project_id, $fieldProp['doc_id']]);

@@ -13,6 +13,7 @@ Notes:
 * The tag is ignored for fields other than file upload fields.
 * Piping of field values and smart variables into the action tag *is* supported, and can utilise data entered onto the same form as the file upload field because the renaming occurs as the form is saved.
 * Do not include any file extension within the pattern. Renamed files will keep the extension with which they were uploaded.
+* Problematic characters ([https://en.wikipedia.org/wiki/Filename#Problematic_characters](https://en.wikipedia.org/wiki/Filename#Problematic_characters)) will be removed when renaming.
 
 ********************************************************************************
 ## Examples
