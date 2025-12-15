@@ -73,7 +73,7 @@ class RenameUpload extends AbstractExternalModule
             $file_extension = end($old_file_name_parts);
             $new_file_name = $new_file_name . "." . $file_extension;
             if ($old_file_name !== $new_file_name) {
-                $update_query = "UPDATE `redcap_edocs_metadata` SET`doc_name`=? WHERE project_id = ? and doc_id = ? limit 1";
+                $update_query = "UPDATE `redcap_edocs_metadata` SET `doc_name`=? WHERE project_id = ? and doc_id = ? limit 1";
                 $this->query($update_query, [$new_file_name, $project_id, $fieldProp['doc_id']]);
                 $log_data = "Project Id = $project_id, \n Record Id = $record, \n , Doc Id = {$fieldProp['doc_id']} \n Old file name = $old_file_name, \n New file name = $new_file_name \n";
                 REDCap::logEvent("Rename Upload External Module",  $log_data, "", $record, $event_id);
